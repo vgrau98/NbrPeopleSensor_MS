@@ -1,4 +1,4 @@
-package com.insa.projet.microservices.nbrPeople_MS;
+package com.insa.projet.microservices.nbrPeople_MS.controller;
 
 import java.util.List;
 
