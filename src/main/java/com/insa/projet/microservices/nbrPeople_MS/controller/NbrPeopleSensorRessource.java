@@ -32,17 +32,42 @@ public class NbrPeopleSensorRessource {
 		}
 		return db.getListSensors();
 	}
+	
+	@PostMapping(path="/addSensor", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public void addSensor(@RequestBody NbrPeopleSensor sensor) {
+		
+		db.getListSensors().add(sensor);
+		
+	}
 
 	@GetMapping("/id/{id}")
 	public NbrPeopleSensor getNbrPeopleSensorID(@PathVariable("id") int id) {
 
 		int index = -1;
+		NbrPeopleSensor sensor=null;
 		for (int i = 0; i < db.getListSensors().size(); i++) {
 			if (db.getListSensors().get(i).getId() == id) {
 				index = i;
 			}
 		}
-		return db.getListSensors().get(index);
+		
+		if(index != -1) {
+			sensor=db.getListSensors().get(index);
+		}
+		return sensor;
+	}
+	
+	@GetMapping("/isMeasured/{id}/{timestamp}")
+	public boolean alreadyMeasured(@PathVariable ("id") int id,@PathVariable ("timestamp") long timestamp) {
+		
+		boolean measured=false;
+		NbrPeopleSensor sensor = getNbrPeopleSensorID(id);
+		for(NbrPeopleValue v : sensor.getValues()) {
+			if(v.getTimestamp()==timestamp) {
+				measured=true;
+			}
+		}
+		return measured;
 	}
 
 	@GetMapping("/room/{room}")
