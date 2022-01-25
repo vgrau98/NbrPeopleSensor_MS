@@ -1,5 +1,11 @@
 package com.insa.projet.microservices.nbrPeople_MS.model;
 
+
+/**
+ * 
+ * @author grau
+ * This class allows to implement a people sensor value
+ */
 public class NbrPeopleValue {
 
 	private int nbrPeople;

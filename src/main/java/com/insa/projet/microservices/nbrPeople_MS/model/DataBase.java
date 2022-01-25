@@ -3,6 +3,14 @@ package com.insa.projet.microservices.nbrPeople_MS.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+/**
+ * 
+ * @author grau
+ * This class allows to implement a database of people sensors
+ *
+ */
 public class DataBase {
 	
 	private List<NbrPeopleSensor> listSensors;
@@ -19,13 +27,5 @@ public class DataBase {
 		this.listSensors = listSensors;
 	}
 	
-	public void initDataBase(int n){
-		
-		this.listSensors.clear();
-		for(int i=0;i<n;i++) {
-			this.listSensors.add(new NbrPeopleSensor(i, i+100));
-		}
-		
-	}
 
 }

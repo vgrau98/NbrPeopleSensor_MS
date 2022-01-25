@@ -3,6 +3,12 @@ package com.insa.projet.microservices.nbrPeople_MS.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * 
+ * @author grau
+ * This class allows to implement a people sensor
+ */
 public class NbrPeopleSensor {
 
 	private int id;
